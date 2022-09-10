@@ -1,0 +1,800 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* css du body */
+body {
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: normal !important;
+  flex-direction: column !important;
+  font-family: 'EB Garamond', Times, serif;
+  font-size: 20px;
+  background: url(flower.jpg) repeat center fixed;
+  background-size: 50%;
+  background-origin: border-box;
+  padding: 0 50px;
+  display: flex !important;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* css de l'entête */
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.icon-islam {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10rem;
+}
+
+i {
+  margin-right: 10px;
+}
+
+.fa-star-and-crescent,
+.fa-book-quran {
+  color: goldenrod;
+}
+
+p {
+  text-indent: 2em;
+  line-height: 1.5;
+  margin: 10px;
+}
+
+/* css du header */
+.surah {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2vw;
+  margin-bottom: 10px;
+  width: 100%;
+  color: goldenrod;
+}
+
+.surah::before,
+.surah::after {
+  content: "";
+  height: 2px;
+  width: 40%;
+  border-radius: 5px;
+}
+
+.surah::before {
+  margin-right: 10px;
+  margin-left: 2%;
+  background: linear-gradient(to right, transparent, #daa520);
+}
+
+.surah::after {
+  margin-left: 10px;
+  margin-right: 2%;
+  background: linear-gradient(to left, transparent, #daa520);
+}
+
+.nomarab {
+  font-size: 5vw;
+  font-weight: 500;
+  word-spacing: 20px;
+  color: darkgoldenrod;
+}
+
+.nomfranc {
+  font-size: 2vw;
+}
+
+.hégire {
+  font-size: 1.5vw;
+  font-style: italic;
+}
+
+.calligraph-bismilah {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+article {
+  margin: 20px 0;
+}
+
+h3 {
+  margin: 20px;
+}
+
+/* css des mots importants */
+.beauty {
+  color: goldenrod;
+  font-style: italic;
+}
+
+/* css du hadith */
+.hadith {
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(to right, rgb(158, 232, 196), rgb(184, 85, 191, 0.8));
+  border-radius: 10px;
+  font-size: 1.5vw;
+  padding: 5px 5px;
+  margin: 5px 5px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 15% 85%;
+  grid-template-rows: 70% 30%;
+  grid-template-areas:
+    "audio-player table"
+    "btn table";
+  margin: 50px 20px;
+  column-gap: 5px;
+}
+
+/* css du bouton download */
+.btn {
+  background-color: white;
+  border: 1px solid goldenrod;
+  border-radius: 100px;
+  color: black;
+  height: 3em;
+  padding: 10px 10px;
+  cursor: pointer;
+  font-family: 'Playfair Display';
+  font-size: 15px;
+  transition: 0.5s;
+  grid-area: btn;
+
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: goldenrod;
+  box-shadow: 6px 6px 12px #333;
+}
+
+/* css du tooltip save me */
+.tooltip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.downloadme {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgba(255, 165, 0, .2);
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 80%;
+  left: 50%;
+  margin-left: -60px;
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  /* opacity: .6;
+  transition: opacity 1s; */
+}
+
+.downloadme::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(255, 165, 0, .2) transparent transparent transparent;
+}
+
+.tooltip:hover .downloadme {
+  visibility: visible;
+}
+
+/* Css de l'audio*/
+.audio-player {
+  --player-button-width: 30px;
+  --sound-button-width: 30px;
+  --space: 10px;
+  width: 150px;
+  height: 150px;
+  margin-top: 50px;
+  grid-area: audio-player;
+}
+
+.icon-container {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(#daa520, #ffc0cb);
+  background-repeat: no-repeat;
+  border-radius: 30%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.audio-icon {
+  width: 90%;
+  height: 90%;
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.player-button {
+  background-color: transparent;
+  border: 0;
+  width: var(--player-button-width);
+  height: var(--player-button-width);
+  cursor: pointer;
+  padding: 0;
+}
+
+.timeline {
+  -webkit-appearance: none;
+  width: calc(100% - (var(--player-button-width) + var(--sound-button-width) + var(--space)));
+  height: .5em;
+  background-color: #e5e5e5;
+  border-radius: 5px;
+  background-size: 0% 100%;
+  background-image: linear-gradient(#DE5E97, #DE5E97);
+  background-repeat: no-repeat;
+  margin-right: var(--space);
+}
+
+.timeline::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: all .1s;
+  background-color: #a94672;
+}
+
+.timeline::-moz-range-thumb {
+  -webkit-appearance: none;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: all .1s;
+  background-color: #a94672;
+}
+
+.timeline::-ms-thumb {
+  -webkit-appearance: none;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: all .1s;
+  background-color: #a94672;
+}
+
+.timeline::-webkit-slider-thumb:hover {
+  background-color: #943f65;
+}
+
+.timeline:hover::-webkit-slider-thumb {
+  opacity: 1;
+}
+
+.timeline::-moz-range-thumb:hover {
+  background-color: #943f65;
+}
+
+.timeline:hover::-moz-range-thumb {
+  opacity: 1;
+}
+
+.timeline::-ms-thumb:hover {
+  background-color: #943f65;
+}
+
+.timeline:hover::-ms-thumb {
+  opacity: 1;
+}
+
+.timeline::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+.timeline::-moz-range-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+.timeline::-ms-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+.sound-button {
+  background-color: transparent;
+  border: 0;
+  width: var(--sound-button-width);
+  height: var(--sound-button-width);
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ------------------------------ */
+
+/* TAFASIR */
+sup {
+  font-weight: bold;
+}
+
+.référence {
+  display: flex;
+  font-size: 0.6em;
+  /* Safari/WebKit */
+  width: -moz-max-content;
+  /* Chrome */
+  width: -webkit-max-content;
+  width: max-content;
+  font-style: italic;
+  font-weight: bold;
+  background-color: darkgrey;
+  border-radius: 10px;
+  padding: 0 .5em;
+}
+
+.note {
+  color: #daa520;
+  font-style: oblique;
+  font-weight: 800;
+}
+
+.tafsir {
+  font-size: 2vw;
+  text-align: center;
+  color: goldenrod;
+  letter-spacing: 2px;
+}
+
+.arabeverse {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.verset {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10em;
+  margin-right: 10em;
+  flex-wrap: nowrap;
+}
+
+.arabetext {
+  font-size: 2vw;
+  text-indent: 0;
+}
+
+.frtext {
+  font-weight: bold;
+  text-indent: 0;
+}
+
+
+ul {
+  display: inline-block;
+  list-style-type: square;
+  line-height: 180%;
+  list-style-position: inside;
+  background: goldenrod;
+  padding: 0 10px;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  flex: 0.4;
+  padding-left: 10px;
+  margin: 50px;
+  font-size: 1.3vw;
+  font-weight: bold;
+  border-left: 1px solid black;
+}
+
+small {
+  font-weight: bold;
+}
+
+.auteur {
+  font-family: 'Beau Rivage';
+  color: #daa520;
+  font-size: 2vw;
+  font-weight: bold;
+  margin: 15px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 20px;
+  display: flex;
+  grid-area: table;
+  border: 1px solid red;
+}
+
+th,
+td {
+  padding: 8px;
+  border-bottom: 1px solid #DDD;
+}
+
+tr:hover {
+  background-color: #D6EEEE;
+}
+
+h5 {
+  font-size: 1.5vw;
+}
+
+.arabtable {
+  font-size: 20px;
+  width: 50%;
+}
+
+/* css des boutons prev&next */
+
+.befnextbutton {
+  display: flex;
+  justify-content: space-between;
+}
+
+.next {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.next:before {
+  content: "";
+  background: linear-gradient(45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.next:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+/* page-précédente */
+.previous {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.previous:before {
+  content: "";
+  background: linear-gradient(45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-previous {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.previous:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+/* -------------------- */
+
+/* start of footer */
+.piedepage {
+  display: grid;
+  grid-template-rows: 0.5fr 0.5fr;
+  grid-template-columns: 40% 20% 20% 20%;
+  width: 100%;
+  height: 750px;
+  margin: 50px 0;
+  padding: 30px;
+  gap: 20px;
+  grid-template-areas: "QUOTES Liensutiles Raccourcis Contact"
+    "Contact-form Contact-form Contact-form Contact-form ";
+  background-color: lightgray;
+}
+
+.QUOTES {
+  font-size: 15px;
+  grid-area: QUOTES;
+  margin-right: 25px;
+}
+
+.Liensutiles {
+  grid-area: Liensutiles;
+  font-size: 15px;
+}
+
+.Raccourcis {
+  grid-area: Raccourcis;
+  font-size: 15px;
+}
+
+.Contact {
+  grid-area: Contact;
+  font-size: 15px;
+}
+
+.Liensutiles ul,
+.Raccourcis ul,
+.Contact ul {
+  background: none;
+  display: inline-block;
+  list-style-type: circle;
+  line-height: 2em;
+  padding: 0;
+  margin-top: 10px;
+}
+/* ------------------------------------ */
+
+/* start of contact form */
+.Contact-form {
+  grid-area: Contact-form;
+}
+
+.form {
+  background: url(quranimg.jpg) no-repeat center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.fa-comment {
+  font-size: 24px;
+}
+
+/* reset */
+#fs-frm input,
+#fs-frm select,
+#fs-frm textarea,
+#fs-frm fieldset,
+#fs-frm optgroup,
+#fs-frm #card-element:disabled {
+  font-family: inherit;
+  border: none;
+  border-radius: 10px;
+  display: block;
+  width: 50%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+#fs-frm ::placeholder {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+#fs-frm label {
+  color: black;
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+/* border, padding, margin, width */
+#fs-frm input,
+#fs-frm select,
+#fs-frm textarea,
+#fs-frm #card-element {
+  border: 1px solid gray;
+  background-color: whitesmoke;
+  padding: 5px 10px ;
+  margin-bottom:20px;
+}
+
+#fs-frm input:focus,
+#fs-frm select:focus,
+#fs-frm textarea:focus {
+  outline-style:solid;
+  outline-width:thin;
+  outline-color: gray;
+  outline-offset: -1px;
+}
+
+#fs-frm [type="text"],
+#fs-frm [type="email"] {
+  width: 50%;
+}
+
+#fs-frm [type="button"],
+#fs-frm [type="submit"],
+#fs-frm [type="reset"] {
+  width: 100px;
+  font-size: 20px;
+  margin-left: 80px ;
+  border: 1px solid gray;
+  background-color: rgba(218, 165, 32, .5);
+  color: lightgray;
+  border-radius: 50px;
+  cursor: pointer;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+}
+
+#fs-frm [type="button"]:focus,
+#fs-frm [type="submit"]:focus,
+#fs-frm [type="reset"]:focus {
+  outline: none;
+}
+
+#fs-frm select {
+  text-transform: none;
+}
+
+#fs-frm [type="checkbox"] {
+  -webkit-appearance: checkbox;
+  -moz-appearance: checkbox;
+  appearance: checkbox;
+  display: inline-block;
+  width: auto;
+  margin: 0 .5em 0 0 !important;
+}
+
+#fs-frm [type="radio"] {
+  -webkit-appearance: radio;
+  -moz-appearance: radio;
+  appearance: radio;
+}
+
+/* address, locale */
+#fs-frm fieldset.locale input[name="city"],
+#fs-frm fieldset.locale select[name="state"],
+#fs-frm fieldset.locale input[name="postal-code"] {
+  display: inline;
+}
+
+#fs-frm fieldset.locale input[name="city"] {
+  width: 52%;
+}
+
+#fs-frm fieldset.locale select[name="state"],
+#fs-frm fieldset.locale input[name="postal-code"] {
+  width: 20%;
+}
+
+#fs-frm fieldset.locale input[name="city"],
+#fs-frm fieldset.locale select[name="state"] {
+  margin-right: 3%;
+}
+
+._gotcha {
+  display: none;
+}
